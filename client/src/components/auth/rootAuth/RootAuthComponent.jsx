@@ -43,7 +43,7 @@ function RootAuthComponent() {
   useEffect(() => {
     if (isAuth) {
       window.localStorage.setItem("token", token);
-      navigate("/home");
+      navigate("/");
     }
   }, [token]);
   return (
