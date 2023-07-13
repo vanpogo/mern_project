@@ -38,7 +38,7 @@ function Login(props) {
         variant="contained"
         margin="normal"
       >
-        Регистрация
+        Войти
       </Button>
       <Typography
         fontFamily={"Poppins"}

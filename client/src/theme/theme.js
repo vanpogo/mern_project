@@ -40,7 +40,7 @@ export const tokens = (mode) => ({
         gray: {
           DEFAULT: "#3C3C3C",
         },
-        accentMain: "#0F0E0E",
+        accentMain: "#fff",
         borderColor: "#3C3C3C",
         blue: "#1900D5",
       }
@@ -72,66 +72,11 @@ export const tokens = (mode) => ({
         gray: {
           DEFAULT: "#3C3C3C",
         },
-        accentMain: "#F7F7F7",
+        accentMain: "#000",
         borderColor: "#D1D1D1",
         blue: "#1900D5",
       }),
 });
-
-// export const colorSettings = (mode) => ({
-//   const collors = tokens(mode);
-
-//   palette: {
-//     mode,
-//     ...(mode === "dark"
-//       ? {
-//           primary:
-//           secondary: {
-//             main: "#0F0E0E",
-//           },
-//           neutral: {
-//             dark: "#000000",
-//             light: "#fff",
-//           },
-//         }
-//       : {
-//           primary: {
-//             main: "#fff",
-//           },
-//           secondary: {
-//             main: "#000000",
-//           },
-//           neutral: {
-//             dark: "#000",
-//             light: "#fff",
-//           },
-//         }),
-//   },
-//   typography: {
-//     fontStyle: ["Poppins", "sans-serif"].join(","),
-//     fontSize: 14,
-//     h1: {
-//       fontStyle: ["Poppins", "sans-serif"].join(","),
-//       fontWeight: 600,
-//       fontSize: 28,
-//     },
-//     h2: {
-//       fontStyle: ["Poppins", "sans-serif"].join(","),
-//       fontWeight: 600,
-//       fontSize: 20,
-//     },
-//     h3: {
-//       fontStyle: ["Poppins", "sans-serif"].join(","),
-//       fontWeight: 600,
-//       fontSize: 18,
-//     },
-//     p: {
-//       fontStyle: ["Poppins", "sans-serif"].join(","),
-//       fontWeight: 500,
-//       fontSize: 14,
-//     },
-//   },
-// });
 
 export const colorSettings = (mode) => {
   const colors = tokens(mode);
