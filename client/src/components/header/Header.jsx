@@ -1,14 +1,13 @@
 import { Box, Grid, IconButton, InputBase } from "@mui/material";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { useSelector } from "react-redux";
-import DarkModeIcon from "@mui/icons-material/DarkMode";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import SearchIcon from "@mui/icons-material/Search";
-import { DarkMode, Search } from "@mui/icons-material";
+import { DarkMode } from "@mui/icons-material";
+import { makeStyles } from "@mui/styles";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import { ColorModeContext, tokens } from "../../theme/theme.js";
 import { useTheme } from "@emotion/react";
-import { makeStyles } from "@mui/styles";
 
 function Header() {
   const { user } = useSelector((state) => state.auth);
@@ -18,7 +17,6 @@ function Header() {
   const colors = tokens(theme.palette.mode);
 
   const colorContext = useContext(ColorModeContext);
-
   const useStyles = makeStyles({
     root: {
       "&:hover": {
@@ -26,14 +24,17 @@ function Header() {
       },
     },
   });
+
   const classes = useStyles();
   return (
     <>
       <Box
+        component={"header"}
         display={"flex"}
         justifyContent={"space-between"}
         px={"32px"}
         py={"24px"}
+        backgroundColor={colors.primary.DEFAULT}
       >
         <Grid>Welcome {user?.firstName ? user?.firstName : ""}</Grid>
         <Box display={"flex"} gap={"10px"}>

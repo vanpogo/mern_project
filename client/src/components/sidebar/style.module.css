@@ -1,5 +1,14 @@
-.root{
-    width: calc(100%/6);
-    background-color: red;
-    height: 100vh;
+.link{
+    display: flex;
+    align-items: center;
+    margin-top: "15px";
+    text-decoration: none;
+    width: "200px";
+    padding: "20px";
+    color:#3C3C3C
+}
+.active{
+    background-color: #1900D5;
+    color:#fff
+    
 }

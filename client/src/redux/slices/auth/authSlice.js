@@ -49,7 +49,13 @@ export const checkAuth = createAsyncThunk(
 const authSlice = createSlice({
   name: "auth",
   initialState,
-  reducers: {},
+  reducers: {
+    logOut: (state) => {
+      state.user = null;
+      state.token = null;
+      state.isLoading = false;
+    },
+  },
   extraReducers: (builder) => {
     //REGISTER
     builder.addCase(registerUser.pending, (state, { payload }) => {
@@ -105,4 +111,5 @@ const authSlice = createSlice({
 });
 
 export const isCheckAuth = (state) => Boolean(state.auth.token);
+export const { logOut } = authSlice.actions;
 export default authSlice.reducer;
