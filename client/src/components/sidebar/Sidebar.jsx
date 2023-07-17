@@ -12,18 +12,16 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
-import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import ChevronLeftOutlinedIcon from "@mui/icons-material/ChevronLeftOutlined";
-import ChevronRightOutlinedIcon from "@mui/icons-material/ChevronRightOutlined";
 import { tokens } from "../../theme/theme";
 import FlexBetween from "../flex-between/FlexBetween";
-import HomeIcon from "@mui/icons-material/Home";
-import styles from "./style.module.css";
-import LogoutIcon from "@mui/icons-material/Logout";
+import {
+  Home,
+  Logout,
+  AccountBoxOutlined,
+  KeyboardDoubleArrowLeft,
+} from "@mui/icons-material";
 import { useDispatch } from "react-redux";
 import { logOut } from "../../redux/slices/auth/authSlice";
-import LOGO from "../../assets/images/logo.png";
-import AccountBoxOutlinedIcon from "@mui/icons-material/AccountBoxOutlined";
 
 function Sidebar(props) {
   const dispatch = useDispatch();
@@ -51,37 +49,27 @@ function Sidebar(props) {
       {isOpen && (
         <Drawer
           anchor="left"
-          open={isOpen}
+          open={true}
           onClose={() => setIsOpen(false)}
           variant="persistent"
-          sx={{
-            width: drawerWidth,
-            "& 	.MuiDrawer-paper": {
-              color: colors.secondary.DEFAULT,
-              background: theme.palette.primary.main,
-              boxSizing: "border-box",
-              width: drawerWidth,
-              // ,
-            },
-          }}
+          className={classes.rootDrawer}
         >
           <FlexBetween>
-            <Box sx={{ padding: "40px 16px 0 15px", display: "flex" }}>
+            <Box className={classes.navHeader}>
               <Box
                 onClick={() => navigate("/")}
                 component={"div"}
-                sx={{
-                  backgroundImage: `url(${LOGO})`,
-                  backgroundSize: "contain",
-                  backgroundRepeat: "no-repeat",
-                  width: "50px",
-                  backgroundPosition: "center",
-                  cursor: "pointer",
-                }}
+                className={classes.logoImg}
               />
-              <Typography variant="h3" className={classes.logo}>
+              <Typography variant="h3" className={classes.logoText}>
                 Demo
               </Typography>
+              <IconButton
+                sx={{ marginLeft: "15px" }}
+                onClick={() => setIsOpen(!isOpen)}
+              >
+                <KeyboardDoubleArrowLeft />
+              </IconButton>
             </Box>
             <Box sx={{ padding: "20px 16px 0 15px" }} marginTop={"45px"}>
               <List>
@@ -107,7 +95,7 @@ function Sidebar(props) {
             <Box sx={{ padding: "20px 16px 0 15px" }}>
               <List>
                 <ListItem className={classes.sidebar_footer}>
-                  <AccountBoxOutlinedIcon />
+                  <AccountBoxOutlined />
                   <Typography marginLeft={"10px"}>User</Typography>
                 </ListItem>
                 <ListItem
@@ -118,7 +106,7 @@ function Sidebar(props) {
                   }}
                   className={classes.sidebar_footer}
                 >
-                  <LogoutIcon />
+                  <Logout />
                   <Typography marginLeft={"10px"}>Logout</Typography>
                 </ListItem>
               </List>
