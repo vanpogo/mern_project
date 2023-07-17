@@ -1,11 +1,35 @@
 import { makeStyles, styled } from "@mui/styles";
 import { tokens } from "../../theme/theme";
 import { Box, ListItem } from "@mui/material";
+import LOGO from "../../assets/images/logo.png";
 
 export const useStyles = makeStyles((theme) => {
   const colors = tokens(theme);
   return {
-    logo: {
+    rootDrawer: {
+      width: "250px",
+      "& 	.MuiDrawer-paper": {
+        color: colors.secondary.DEFAULT,
+        background: theme.palette.primary.main,
+        boxSizing: "border-box",
+        width: "250px",
+      },
+    },
+    navHeader: {
+      padding: "40px 16px 0 15px",
+      display: "flex",
+      alignItems: "center",
+    },
+    logoImg: {
+      backgroundImage: `url(${LOGO})`,
+      backgroundSize: "contain",
+      backgroundRepeat: "no-repeat",
+      width: "60px",
+      height: "60px",
+      backgroundPosition: "center",
+      cursor: "pointer",
+    },
+    logoText: {
       fontSize: "28px",
       color:
         theme.palette.mode === "dark"

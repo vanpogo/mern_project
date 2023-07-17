@@ -8,7 +8,7 @@ function Layout({ children }) {
   const [isOpen, setIsOpen] = useState(true);
   const { pathname } = useLocation();
 
-  const isNonMobile = useMediaQuery("(max-width:600px)");
+  const isNonMobile = useMediaQuery("(max-width:950px)");
 
   useEffect(() => {
     isNonMobile ? setIsOpen(false) : setIsOpen(true);
@@ -17,12 +17,7 @@ function Layout({ children }) {
   return pathname === "/login" || pathname === "/register" ? (
     <>{children}</>
   ) : (
-    <Box
-      display={isNonMobile ? "block" : "flex"}
-      justifyContent="space-between"
-      width="100%"
-      height="100%"
-    >
+    <Box display={isNonMobile ? "block" : "flex"}>
       {isOpen && (
         <Sidebar
           isNonMobile={isNonMobile}
@@ -32,7 +27,14 @@ function Layout({ children }) {
         />
       )}
 
-      <Box width={"100%"}>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          flexGrow: 1,
+        }}
+      >
         <Header
           isOpen={isOpen}
           setIsOpen={setIsOpen}
